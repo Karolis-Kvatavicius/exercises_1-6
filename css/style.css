@@ -21,3 +21,8 @@ i {
 #textarea {
     resize: none;
 }
+
+/* EXERCISE 6 */
+#code-image {
+    width: 50%;
+}

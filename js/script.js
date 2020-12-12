@@ -102,3 +102,41 @@ pateikti.addEventListener('click', function() {
 komentaras.addEventListener('click', function() {
     formaKomentarui.style.display = 'block';   
 })
+
+
+// EXERCISE 6
+let kaireje = document.querySelector('#kaireje');
+let desineje = document.querySelector('#desineje');
+let paslepti = document.querySelector('#paslepti');
+let apacioje = document.querySelector('#apacioje');
+let atstatyti = document.querySelector('#atstatyti');
+
+let flexContainer = document.querySelector('#flex-container');
+let codeImage = document.querySelector('#code-image');
+
+kaireje.addEventListener('click', function() {
+    flexContainer.setAttribute('class', 'd-flex flex-row');
+})
+
+desineje.addEventListener('click', function() {
+    flexContainer.setAttribute('class', 'd-flex flex-row-reverse');
+})
+
+paslepti.addEventListener('click', function() {
+    codeImage.classList.toggle('d-none');
+    if (this.innerHTML === "Paslėpti" || this.innerHTML === "Ir vėl Paslėpti!") {
+        this.innerHTML = "Rodyti";
+      } else {
+        this.innerHTML = "Ir vėl Paslėpti!";
+      }
+})
+
+apacioje.addEventListener('click', function() {
+    flexContainer.setAttribute('class', 'd-flex flex-column-reverse');
+})
+
+atstatyti.addEventListener('click', function() {
+    flexContainer.setAttribute('class', 'd-flex flex-column');
+    codeImage.classList.remove('d-none');
+    paslepti.innerHTML = "Paslėpti";
+})
