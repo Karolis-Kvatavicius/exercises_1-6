@@ -77,3 +77,28 @@ let pavadinimas = document.querySelector('#pavadinimas');
 btn_ok.addEventListener('click', function() {
     pavadinimas.classList.toggle('pavadinimas');
 })
+
+
+// EXERCISE 5
+let pateikti = document.querySelector('#pateikti');
+let komentaras = document.querySelector('#komentaras');
+let formaKomentarui = document.querySelector('#formaKomentarui');
+formaKomentarui.style.display = 'none';
+
+pateikti.addEventListener('click', function() {
+    swal({
+        title: "Šaunu!",
+        text: "Jūsų komentaras pateiktas",
+        icon: "success",
+        button: "Tęsti",
+      }).then( function() {
+        formaKomentarui.style.display = 'none';
+      });
+
+    
+
+})
+
+komentaras.addEventListener('click', function() {
+    formaKomentarui.style.display = 'block';   
+})

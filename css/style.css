@@ -16,3 +16,8 @@ i {
 .pavadinimas {
     display: none;
 }
+
+/* EXERCISE 5 */
+#textarea {
+    resize: none;
+}
