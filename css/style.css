@@ -11,3 +11,8 @@ i {
 .icon-dark {
     color: rgb(34, 29, 29);
 }
+
+/* EXERCISE 4 */
+.pavadinimas {
+    display: none;
+}

@@ -68,3 +68,12 @@ nespalvotas.addEventListener('click', function() {
 htmlIcon2.addEventListener('click', function() {
     this.classList.remove("icon-color", "icon-dark");
 })
+
+
+// EXERCISE 4
+let btn_ok = document.querySelector('#ok');
+let pavadinimas = document.querySelector('#pavadinimas');
+
+btn_ok.addEventListener('click', function() {
+    pavadinimas.classList.toggle('pavadinimas');
+})
