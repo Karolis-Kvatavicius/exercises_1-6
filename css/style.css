@@ -2,3 +2,12 @@
 i {
     color: rgb(182, 121, 7);
 }
+
+/* EXERCISE 3 */
+.icon-color {
+    color: aqua;
+}
+
+.icon-dark {
+    color: rgb(34, 29, 29);
+}

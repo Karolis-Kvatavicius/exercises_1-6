@@ -44,3 +44,27 @@ htmlIcon.addEventListener('click', function() {
     this.classList.remove("fa-10x");
     this.classList.add('fa-5x');
 })
+
+
+// EXERCISE 3
+let htmlIcon2 = document.querySelector("#second-ico");
+
+let spalvotas = document.querySelector("#spalvotas");
+let nespalvotas = document.querySelector("#nespalvotas");
+
+// MAKE ICON COLORFULL
+spalvotas.addEventListener('click', function() {
+    htmlIcon2.classList.remove("icon-dark");
+    htmlIcon2.classList.add("icon-color");
+})
+
+// MAKE ICON DARK
+nespalvotas.addEventListener('click', function() {
+    htmlIcon2.classList.remove("icon-color");
+    htmlIcon2.classList.add("icon-dark");
+})
+
+// RESET ICON COLOR
+htmlIcon2.addEventListener('click', function() {
+    this.classList.remove("icon-color", "icon-dark");
+})
