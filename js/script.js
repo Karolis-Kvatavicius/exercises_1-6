@@ -140,3 +140,9 @@ atstatyti.addEventListener('click', function() {
     codeImage.classList.remove('d-none');
     paslepti.innerHTML = "Paslėpti";
 })
+
+
+// NAVIGATION
+function scrollToElement(elementID) {
+    document.querySelector(elementID).scrollIntoView();
+}

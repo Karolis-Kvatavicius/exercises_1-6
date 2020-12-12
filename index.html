@@ -12,6 +12,16 @@
 </head>
 
 <body>
+    <!-- NAVIGATE EXERCISES -->
+    <h2 class="h5 text-center">Navigate exercises:</h2>
+    <nav id="navigation" class="text-center my-3">
+        <button class="btn btn-primary" onclick="scrollToElement('#e1')">1</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e2')">2</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e3')">3</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e4')">4</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e5')">5</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e6')">6</button>
+    </nav>
     <div class="container">
         <div class="row-cols-1">
             <!-- 1 -->
@@ -123,7 +133,8 @@
             </div>
         </div>
     </div>
-
+    <!-- SCROLL TO TOP OF THE PAGE -->
+    <button class="btn btn-success rounded fixed-bottom m-3" onclick="scrollToElement('.h5')">Up</button>
     <!-- SCRIPT FILES -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/script.js"></script>
