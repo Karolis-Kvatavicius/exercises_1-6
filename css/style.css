@@ -1,0 +1,140 @@
+/* FOR PADDLE GAME
+ALL CREDITS GOES TO Kit Jenson https://codepen.io/kitjenson/pen/dypvgad */
+:root {
+    --color:#111;
+    --bg:url('https://www.transparenttextures.com/patterns/skulls.png');
+  }
+  html {  
+    font-family:'Montserrat', monospace;
+    font-weight:900;  
+  }
+  body { 
+    margin:0; 
+    padding:0; 
+    overflow:hidden;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height:100vh;
+    width:100%;
+    background-image:var(--bg);
+    background-color:var(--color);
+  /*   background-blend-mode:multiply; */
+  }
+  
+  #blur_bg {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background:var(--bg), var(--color);
+    filter:blur(4px);
+  }
+  
+  #paddle {
+    width:10vw;
+    height:15px;
+    background:white;
+    position:absolute;
+    bottom:25px;
+    margin-left:calc(50% - 5vw);
+  }
+  
+  #ball {
+    width:15px;
+    height:15px;
+    background:white;
+    position:absolute;
+    top:80%;
+    left:calc(50% - 7.5px);
+  }
+  
+  #hits {
+    background-color:hsla(0, 0%, 100%, .3);
+    font-size:300px;
+    line-height:100%;
+    color:var(--color);
+    user-select:none;
+    padding:0 50px;
+    border-radius:5px;
+    position:relative;
+    transition:transform 3s linear;
+    overflow:hidden;
+    opacity:.8;
+  }
+  
+  /* #hits * {
+    pointer-events:none;
+  } */
+  
+  .new_hit {
+    animation:hit .25s linear forwards;
+  }
+  @keyframes hit {
+    50% { transform:scale(1.25); }
+  }
+  
+  #left_hitbox, #right_hitbox,
+  #top_hitbox, #bottom_hitbox {
+    opacity:0;
+  }
+  
+  #left_hitbox, #right_hitbox {
+    width:10px;
+    height:100%;
+    background:red;
+    position:absolute;
+    top:0;
+  }
+  #top_hitbox, #bottom_hitbox {
+    width:100%;
+    height:10px;
+    background:red;
+    position:absolute;
+    left:0;
+  }
+  #left_hitbox {  
+    left:0;
+  }
+  #right_hitbox {  
+    right:0;
+  }
+  #top_hitbox {  
+    top:0;
+  }
+  #bottom_hitbox {  
+    bottom:0;
+  }
+  
+  #high_score {
+    font-size:24px;
+    font-weight:300;
+    line-height:100%;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    text-shadow:none;
+  }
+  
+  #how_to {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #111;
+    font-weight: 500;
+    line-height: 125%;
+    transition:.5s;
+  }
+
+  /* ADDITIONAL NAVIGATION STYLES */
+ .custom-link {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .custom-link:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }

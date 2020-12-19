@@ -9,70 +9,89 @@
     <title>2 pamoka</title>
 </head>
 
-<body>
+<body class="container">
     <!-- 1 -->
-    <div class="container mx-auto mt-5" style="width: 1000px;">
-        <h3>1 užduotis</h3>
-        <form name="form" id="form">
-            <div class="form-group">
-                <label>Guess a number from 0 to 100</label>
-                <input name="input" type="number" placeholder="Guess a number" class="form-control col-5" id="number">
-                <button type="submit" form="form" class="btn btn-success col-2 mt-3" id="btn">Submit</button>
-            </div>
-            <p id="resultText"></p>
-            <p id="resultCount"></p>
-        </form>
+    <div class="row mb-5 mt-3 p-3 border border-info">
+        <div class="col mx-auto" style="width: 1000px;">
+            <h3>1 užduotis</h3>
+            <form name="form" id="form">
+                <div class="form-group">
+                    <label>Guess a number from 0 to 100</label>
+                    <input name="input" type="number" placeholder="Guess a number" class="form-control col-5"
+                        id="number">
+                    <button type="submit" form="form" class="btn btn-success col-2 mt-3" id="btn">Submit</button>
+                </div>
+                <p id="resultText"></p>
+                <p id="resultCount"></p>
+            </form>
+        </div>
     </div>
 
     <!-- 2 -->
-    <div class="container">
-        <h3>2 užduotis</h3>
-        <form style="margin-top: 40px" name="form1" id="form1">
-            <div class="row justify-content-md-center">
-                <div class="col col-lg-2">
-                    <input type="text" class="form-control" name="firstNumber">
+    <div class="row mb-5 p-3 border border-info">
+        <div class="col">
+            <h3>2 užduotis</h3>
+            <form style="margin-top: 40px" name="form1" id="form1">
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <input type="text" class="form-control" name="firstNumber">
+                    </div>
+                    <div class="col col-md-auto">
+                        <p>+</p>
+                    </div>
+                    <div class="col col-lg-2">
+                        <input type="text" class="form-control" name="secondNumber">
+                    </div>
+                    <div class="col">
+                        <button type="submit" form="form1" class="btn btn-primary">=</button>
+                    </div>
                 </div>
-                <div class="col col-md-auto">
-                    <p>+</p>
-                </div>
-                <div class="col col-lg-2">
-                    <input type="text" class="form-control" name="secondNumber">
-                </div>
-                <div class="col">
-                    <button type="submit" form="form1" class="btn btn-primary">=</button>
-                </div>
-            </div>
-        </form>
-        <p>Sum is: <span id="sum"></span></p>
+            </form>
+            <p>Sum is: <span id="sum"></span></p>
+        </div>
     </div>
 
     <!-- 3 -->
-    <div class="container">
-        <h3>3 užduotis</h3>
-        <div class="col-4 mt-5">
-            <form id="form2">
-                <div class="form-group">
-                    <label for="height">Įveskite savo ūgį (cm)</label>
-                    <input type="number" class="form-control" id="height" name="height" min="100"
-                        placeholder="Įveskite savo ūgį centimetrais">
-                </div>
-                <div class="form-group">
-                    <label for="weight">Įveskite savo svorį (kg)</label>
-                    <input type="number" class="form-control" id="weight" name="weight" min="50" placeholder="Svoris kg"
-                        min="30" max="200">
-                </div>
-                <button type="submit" form="form2" class="btn btn-primary">Skaičiuoti KMI</button>
-            </form>
+    <div class="row mb-5 p-3 border border-info">
+        <div class="col">
+            <h3>3 užduotis</h3>
+            <div class="col-4 mt-5 pl-0">
+                <form id="form2">
+                    <div class="form-group">
+                        <label for="height">Įveskite savo ūgį (cm)</label>
+                        <input type="number" class="form-control" id="height" name="height" min="100"
+                            placeholder="Įveskite savo ūgį centimetrais">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Įveskite savo svorį (kg)</label>
+                        <input type="number" class="form-control" id="weight" name="weight" min="50"
+                            placeholder="Svoris kg" min="30" max="200">
+                    </div>
+                    <button type="submit" form="form2" class="btn btn-primary">Skaičiuoti KMI</button>
+                </form>
 
-            <p id="kmi"></p>
+                <p id="kmi"></p>
+            </div>
         </div>
     </div>
 
     <!-- 4 -->
-    <div class="container">
-        <h3>4 užduotis</h3>
+    <div class="row mb-5 p-3 border border-info">
+        <h3 class="col-12">4 užduotis</h3>
+        <div class="col d-flex mt-5">
+            <input type="text" id="task" autocomplete="off" class="form-control mr-3" placeholder="Įrašykite, ką norite pridėti į sąrašą">
+            <button type="submit" id="add" class="btn btn-primary mb-2">Pridėti</button>
+        </div>
+        <div class="col-12 mt-3">
+            <p>Sąrašas:</p>
+            <ul id="list">
 
+            </ul>
+        </div>
     </div>
+
+    <!-- BACK TO CLASSES LIST -->
+    <button class="btn btn-warning rounded fixed-top m-3" onclick="window.location='../';">Back</button>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
