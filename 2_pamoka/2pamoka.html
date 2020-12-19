@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
     <title>2 pamoka</title>
 </head>
 
@@ -79,7 +80,8 @@
     <div class="row mb-5 p-3 border border-info">
         <h3 class="col-12">4 užduotis</h3>
         <div class="col d-flex mt-5">
-            <input type="text" id="task" autocomplete="off" class="form-control mr-3" placeholder="Įrašykite, ką norite pridėti į sąrašą">
+            <input type="text" id="task" autocomplete="off" class="form-control mr-3"
+                placeholder="Įrašykite, ką norite pridėti į sąrašą">
             <button type="submit" id="add" class="btn btn-primary mb-2">Pridėti</button>
         </div>
         <div class="col-12 mt-3">
@@ -88,6 +90,32 @@
 
             </ul>
         </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="row mb-5 p-3 border border-info">
+        <h3 class="col-12 mb-5">5 užduotis</h3>
+        <form class="ml-3" action="" method="post">
+            <input type="text" id="input1" class="form-control mb-3">
+            <input type="text" id="input2" class="form-control">
+        </form>
+    </div>
+
+    <!-- 6 -->
+    <div style="height: 50vh;" id="paveikslelis" class="row mb-5 p-3 border border-info">
+        <h3 class="col-12 mb-5">6 užduotis</h3>
+        <div class="form-group ml-3">
+            <label for="id_of_select">Pasirinkite kokio fono norėtumėte</label>
+            <select class="form-control" id="id_of_select">
+                <option value="0" selected disabled>--Pasirinkite--</option>
+                <option value="1">Pavasaris</option>
+                <option value="2">Vasara</option>
+                <option value="3">Ruduo</option>
+                <option value="4">Žiema</option>
+            </select>
+        </div>
+    </div>
+        <button id="btn" class="btn btn-success">Rodyti</button>
     </div>
 
     <!-- BACK TO CLASSES LIST -->
