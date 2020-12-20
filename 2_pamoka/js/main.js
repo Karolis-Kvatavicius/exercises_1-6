@@ -99,7 +99,6 @@ let pasirinkimas = document.querySelector('#id_of_select');
 pasirinkimas.addEventListener('change', e => {
     switch (e.target.value) {
         case '0':
-            console.log('1');
             paveikslelis.style.backgroundImage = "none";
             break;
         case '1':
@@ -115,4 +114,24 @@ pasirinkimas.addEventListener('change', e => {
             paveikslelis.style.backgroundImage = "url(https://images.unsplash.com/photo-1484313544071-4d67c88b99be?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80)";
             break;
     }
+})
+
+//7
+let main_image = document.querySelector('#main-picture');
+let small_images = document.querySelectorAll('[id^="picture-"]');
+let main_picture_alt = document.querySelector('#main-picture-alt');
+main_picture_alt.innerHTML = main_image.alt; 
+
+small_images.forEach(image => {
+    image.addEventListener('click', e => {
+        let tempSrc = main_image.src;
+        main_image.src = e.target.src;
+        e.target.src = tempSrc;
+
+        let tempAlt = main_image.alt;
+        main_image.alt = e.target.alt;
+        e.target.alt = tempAlt;
+
+        main_picture_alt.innerHTML = main_image.alt;
+    })
 })
