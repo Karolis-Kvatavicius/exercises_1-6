@@ -11,8 +11,22 @@
 </head>
 
 <body class="container">
+
+    <!-- NAVIGATE EXERCISES -->
+    <h2 class="h5 text-center">Navigate exercises:</h2>
+    <nav id="navigation" class="text-center my-3">
+        <button class="btn btn-primary" onclick="scrollToElement('#e1')">1</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e2')">2</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e3')">3</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e4')">4</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e5')">5</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#paveikslelis')">6</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e7')">7</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e8')">8</button>
+    </nav>
+
     <!-- 1 -->
-    <div class="row mb-5 mt-3 p-3 border border-info">
+    <div id="e1" class="row mb-5 mt-3 p-3 border border-info">
         <div class="col mx-auto" style="width: 1000px;">
             <h3 class="mb-5">1 užduotis</h3>
             <form name="form" id="form">
@@ -29,7 +43,7 @@
     </div>
 
     <!-- 2 -->
-    <div class="row mb-5 p-3 border border-info">
+    <div id="e2" class="row mb-5 p-3 border border-info">
         <div class="col">
             <h3>2 užduotis</h3>
             <form class="mt-5" name="form1" id="form1">
@@ -53,7 +67,7 @@
     </div>
 
     <!-- 3 -->
-    <div class="row mb-5 p-3 border border-info">
+    <div id="e3" class="row mb-5 p-3 border border-info">
         <div class="col">
             <h3>3 užduotis</h3>
             <div class="col-4 mt-5 pl-0">
@@ -77,7 +91,7 @@
     </div>
 
     <!-- 4 -->
-    <div class="row mb-5 p-3 border border-info">
+    <div id="e4" class="row mb-5 p-3 border border-info">
         <h3 class="col-12">4 užduotis</h3>
         <div class="col d-flex mt-5">
             <input type="text" id="task" autocomplete="off" class="form-control mr-3"
@@ -93,7 +107,7 @@
     </div>
 
     <!-- 5 -->
-    <div class="row mb-5 p-3 border border-info">
+    <div id="e5" class="row mb-5 p-3 border border-info">
         <h3 class="col-12 mb-5">5 užduotis</h3>
         <form class="ml-3" action="" method="post">
             <input type="text" id="input1" class="form-control mb-3">
@@ -117,7 +131,7 @@
     </div>
 
     <!-- 7 -->
-    <div class="row mb-5 p-3 border border-info">
+    <div id="e7" class="row mb-5 p-3 border border-info">
         <h3 class="col-12 mb-5">7 užduotis</h3>
         <div class="col-12 text-center mb-5">
             <img id="main-picture"
@@ -140,7 +154,7 @@
     </div>
 
     <!-- 8 -->
-    <div class="row mb-3 p-3 border border-info">
+    <div id="e8" class="row mb-3 p-3 border border-info">
         <h3 class="col-12 mb-5">8 užduotis</h3>
         <div class="col-12">
             <form class="mx-auto" id="arbatos_skaiciuokle" name="arbatos_skaiciuokle" action="" method="get">
@@ -178,6 +192,9 @@
             </form>
         </div>
     </div>
+
+    <!-- SCROLL TO TOP OF THE PAGE -->
+    <button class="btn btn-success rounded fixed-bottom m-3" onclick="scrollToElement('body')">Up</button>
 
     <!-- BACK TO CLASSES LIST -->
     <button class="btn btn-warning rounded fixed-top m-3" onclick="window.location='../';">Back</button>

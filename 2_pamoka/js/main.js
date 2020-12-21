@@ -1,3 +1,8 @@
+// NAVIGATION
+function scrollToElement(elementID) {
+    document.querySelector(elementID).scrollIntoView();
+}
+
 // 1
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 let form = document.querySelector('[name=form]');
