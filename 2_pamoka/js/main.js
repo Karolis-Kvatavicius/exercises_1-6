@@ -135,3 +135,17 @@ small_images.forEach(image => {
         main_picture_alt.innerHTML = main_image.alt;
     })
 })
+
+//8
+let skaiciuoti = document.querySelector('#skaiciuok');
+
+skaiciuoti.addEventListener('click', e => {
+   e.preventDefault();
+   let skaiciuokles_forma = document.forms['arbatos_skaiciuokle'];
+   let arbata = Number(skaiciuokles_forma['ivertinimas'].value)/100;
+   let rezultatas = (Number(skaiciuokles_forma['sask_suma'].value) * arbata / Number(skaiciuokles_forma['zm_skaicius'].value)).toFixed(2);
+   document.querySelector('#arbatos_suma').innerHTML = `${rezultatas}<sup>Eur</sup>`;
+   e.target.classList.add('d-none');
+   e.target.classList.remove('d-block');
+   document.querySelector('#skaic_rezultatas').classList.remove('d-none');
+})

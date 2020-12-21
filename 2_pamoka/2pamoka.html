@@ -14,7 +14,7 @@
     <!-- 1 -->
     <div class="row mb-5 mt-3 p-3 border border-info">
         <div class="col mx-auto" style="width: 1000px;">
-            <h3>1 užduotis</h3>
+            <h3 class="mb-5">1 užduotis</h3>
             <form name="form" id="form">
                 <div class="form-group">
                     <label>Guess a number from 0 to 100</label>
@@ -32,7 +32,7 @@
     <div class="row mb-5 p-3 border border-info">
         <div class="col">
             <h3>2 užduotis</h3>
-            <form style="margin-top: 40px" name="form1" id="form1">
+            <form class="mt-5" name="form1" id="form1">
                 <div class="row justify-content-md-center">
                     <div class="col col-lg-2">
                         <input type="text" class="form-control" name="firstNumber">
@@ -103,7 +103,7 @@
 
     <!-- 6 -->
     <div id="paveikslelis" class="row mb-5 p-3 border border-info">
-        <h3 class="col-12 mb-5">6 užduotis</h3>
+        <h3 class="col-12">6 užduotis</h3>
         <div class="form-group ml-3">
             <label for="id_of_select">Pasirinkite kokio fono norėtumėte</label>
             <select class="form-control" id="id_of_select">
@@ -140,8 +140,45 @@
     </div>
 
     <!-- 8 -->
+    <div class="row mb-3 p-3 border border-info">
+        <h3 class="col-12 mb-5">8 užduotis</h3>
+        <div class="col-12">
+            <form class="mx-auto" id="arbatos_skaiciuokle" name="arbatos_skaiciuokle" action="" method="get">
+                <h4 class="text-center text-uppercase mb-0 bg-warning rounded-top p-3">Arbatpinigių skaičiuoklė</h4>
+                <div class="rounded-bottom bg-light p-3">
+                    <label for="sask_suma">Sąskaitos suma:</label>
+                    <input class="form-control mb-3 text-danger" name="sask_suma" id="sask_suma" type="text"
+                        value="Sąskaitos suma">
+                    <!--<label for="sask_suma">Eur</label>-->
 
-    
+                    <label for="ivertinimas">Įvertinkite aptarnavimą:</label>
+                    <select class="form-control mb-3" name="ivertinimas" id="ivertinimas">
+                        <option value="0" selected disabled>--Pasirinkite--</option>
+                        <option value="30">30% - Fantastika!</option>
+                        <option value="20">20% - Labai geras</option>
+                        <option value="10">10% - OK</option>
+                        <option value="5">5% - Blogas</option>
+                        <option value="1">1% - Siaubingas</option>
+                    </select>
+
+                    <label for="zm_skaicius">Žmonių skaičius:</label>
+                    <input class="form-control mb-3 text-danger" name="zm_skaicius" id="zm_skaicius" type="text"
+                        value="Žmonių skaičius">
+                    <div>
+                        <input name="skaiciuok" id="skaiciuok"
+                            class="btn btn-warning form-control d-block text-uppercase text-center w-50 mx-auto"
+                            type="submit" value="Skaičiuok!">
+                    </div>
+                </div>
+                <div class="d-none bg-warning text-center rounded-bottom" id="skaic_rezultatas">
+                    <span class="h4 text-uppercase d-block">arbatpinigiai</span>
+                    <span id="arbatos_suma" class="h4 d-block"></span>
+                    <span class="h4 d-block">Kiekvienam!</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- BACK TO CLASSES LIST -->
     <button class="btn btn-warning rounded fixed-top m-3" onclick="window.location='../';">Back</button>
 

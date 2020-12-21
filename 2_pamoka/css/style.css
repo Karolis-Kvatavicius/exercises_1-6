@@ -6,6 +6,12 @@
     height: 50vh;
 }
 
+/* 7 */
 img {
     cursor: pointer;
+}
+
+/* 8 */
+#arbatos_skaiciuokle {
+    width: 30vw;
 }
