@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>2 pamoka</title>
+</head>
+
+<body class="container">
+
+    <!-- NAVIGATE EXERCISES -->
+    <h2 class="h5 text-center">Navigate exercises:</h2>
+    <nav id="navigation" class="text-center my-3">
+        <button class="btn btn-primary" onclick="scrollToElement('#e1')">1</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e2')">2</button>
+        <button class="btn btn-primary" onclick="scrollToElement('#e3')">3</button>
+    </nav>
+
+    <!-- 1 -->
+    <div id="e1" class="row mb-5 mt-3 p-3 border border-info">
+        <div class="col mx-auto" style="width: 1000px;">
+            <ul class="pl-0" id="friends_list">
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div id="e2" class="row mb-5 p-3 border border-info">
+        <div class="col">
+
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div id="e3" class="row mb-5 p-3 border border-info">
+        <div class="col">
+
+        </div>
+    </div>
+
+    <!-- SCROLL TO TOP OF THE PAGE -->
+    <button class="btn btn-success rounded fixed-bottom m-3" onclick="scrollToElement('body')">Up</button>
+
+    <!-- BACK TO CLASSES LIST -->
+    <button class="btn btn-warning rounded fixed-top m-3" onclick="window.location='../';">Back</button>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
