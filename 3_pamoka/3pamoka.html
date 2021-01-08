@@ -32,7 +32,15 @@
     <!-- 2 -->
     <div id="e2" class="row mb-5 p-3 border border-info">
         <div class="col">
-
+            <h2 class="mb-5">2 užduotis</h2>
+            <form id="progress-bar-form" action="">
+                <label id="progress-number-label" class="text-danger" for="progress-number"></label>
+                <input id="progress-number" class="form-control" name="progress-number" type="number" placeholder="Įveskite skaičių">
+                <input class="btn btn-primary mt-3 rounded" name="submit-number" type="submit" value="OK">
+            </form>
+            <div id="progress" class="progress my-5">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
         </div>
     </div>
 
