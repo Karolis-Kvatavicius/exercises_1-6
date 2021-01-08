@@ -73,10 +73,10 @@
             return;
         }
 
-        if (inputValue != "" && e.keyCode == 13) {
+        if (e.target.value != "" && e.keyCode == 13) {
             let progress_number_label = document.querySelector('#progress-number-label');
             let progress_bar = document.querySelector('#progress-bar');
-            let progress_number = e.target.elements['progress-number'].value;
+            let progress_number = document.querySelector('#progress-number').value;
             checkInputNumber(progress_number, progress_bar, progress_number_label);
         }
     })
