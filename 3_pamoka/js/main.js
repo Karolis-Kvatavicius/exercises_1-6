@@ -1,15 +1,20 @@
 (e => {
     // NAVIGATION
-    function scrollToElement(elementID) {
-        document.querySelector(elementID).scrollIntoView();
-    }
+    document.querySelectorAll(".exercise-nav").forEach(element => {
+        element.addEventListener('click', event => {
+            document.querySelectorAll('[id^="exercise"]').forEach(e => {
+                e.classList.add("d-none");
+            });
+            document.querySelector("#exercise" + event.target.innerText).classList.toggle("d-none");
+        })
+    }) 
 
     // 1
     let friends = ["Mike", "Stacy", "Andy", "Rick"];
     let friends_list = document.querySelector('#friends_list');
     let colors = ['warning', 'danger', 'primary', 'secondary', 'info', 'success', 'dark'];
 
-    let exercise1 = document.querySelector('#e1');
+    let exercise1 = document.querySelector('#exercise1');
     let heading1 = document.createElement("h2");
     heading1.classList.add("mb-5");
     let text1 = document.createTextNode("1 užduotis");
