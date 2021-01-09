@@ -1,4 +1,5 @@
 (e => {
+
     // NAVIGATION
     document.querySelectorAll(".exercise-nav").forEach(element => {
         element.addEventListener('click', event => {
@@ -6,8 +7,13 @@
                 e.classList.add("d-none");
             });
             document.querySelector("#exercise" + event.target.innerText).classList.toggle("d-none");
+            //EXERCISE 3
+            if (event.target.innerText == '3') {
+                buildForm();
+                onFormSubmit();
+            }
         })
-    }) 
+    })
 
     // 1
     let friends = ["Mike", "Stacy", "Andy", "Rick"];
@@ -85,4 +91,72 @@
             checkInputNumber(progress_number, progress_bar, progress_number_label);
         }
     })
+
+    //3
+    function buildForm() {
+        let form = document.createElement('form');
+        form.setAttribute('id', 'id-forma');
+        let textInput = document.createElement('input');
+        textInput.classList.add('form-control');
+        textInput.setAttribute('type', "text");
+        textInput.setAttribute('placeholder', "Įveskite savo asmens kodą");
+        textInput.setAttribute('required', "");
+        form.appendChild(textInput);
+
+        let submitInput = document.createElement('input');
+        submitInput.classList.add('btn', 'btn-success', 'mt-3');
+        submitInput.setAttribute('type', "submit");
+        submitInput.setAttribute('value', "Check");
+        form.appendChild(submitInput);
+        let message = document.createElement('p');
+        message.setAttribute('id', 'id-check-answer');
+        message.classList.add('mt-3');
+        form.appendChild(message);
+        document.querySelector('#exercise3 div').appendChild(form);
+    }
+
+    function onFormSubmit() {
+        document.querySelector('#id-forma').addEventListener('submit', event => {
+            event.preventDefault();
+            check_if_input_is_id(event.target.elements['0'].value);
+        })
+    }
+
+    function check_if_input_is_id(param) {
+        let result = document.querySelector('#id-check-answer');
+
+        //CHECK IF INPUT IS A 11 DIGITS STRING
+        if (param.match(/^\d{11}$/g) !== null) {
+            let sum1 = +param[0] + +param[1] * 2 + +param[2] * 3 + +param[3] * 4 + +param[4] * 5 +
+                +param[5] * 6 + +param[6] * 7 + +param[7] * 8 + +param[8] * 9 + +param[9];
+
+            let sum2 = (+param[0] * 3) + (+param[1] * 4) + (+param[2] * 5) + (+param[3] * 6) +
+                (+param[4] * 7) + (+param[5] * 8) + (+param[6] * 9) + (+param[7]) + (+param[8] * 2) + (+param[9] * 3);
+            let liekana1 = sum1 % 11;
+            let liekana2 = sum2 % 11;
+            let k = +param[10];
+            console.log(liekana1);
+            console.log(liekana2);
+
+            //ASMENS KODO TIKRINIMAS
+            if (liekana1 != 10 && liekana1 == k) {
+                result.classList.add('text-success');
+                result.innerText = `Asmens kodas: K=${k}, sugeneruotas 1 kartu`;
+            } else if (liekana1 == 10 && liekana2 != 10 && liekana2 == k) {
+                result.classList.add('text-success');
+                result.innerText = `Asmens kodas: K=${k}, sugeneruotas 2 kartu`;
+            } else if (liekana2 == 10 && k == 0) {
+                result.classList.add('text-success');
+                result.innerText = `Asmens kodas: K=${k}, sugeneruotas 3 kartu`;
+            } else {
+                result.classList.add('text-danger');
+                result.innerText = "Ne asmens kodas";
+            }
+
+        } else {
+            result.classList.add('text-danger');
+            result.innerText = "Ne asmens kodas";
+        }
+    }
+
 })();
