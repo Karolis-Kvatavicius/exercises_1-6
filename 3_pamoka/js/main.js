@@ -9,6 +9,7 @@
             document.querySelector("#exercise" + event.target.innerText).classList.toggle("d-none");
             //EXERCISE 3
             if (event.target.innerText == '3') {
+                removeForm('#id-forma ');
                 buildForm();
                 onFormSubmit();
             }
@@ -113,6 +114,13 @@
         message.classList.add('mt-3');
         form.appendChild(message);
         document.querySelector('#exercise3 div').appendChild(form);
+    }
+
+    function removeForm(form_id) {
+        let formToDelete = document.querySelector(form_id);
+        if (formToDelete) {
+            formToDelete.parentNode.removeChild(formToDelete);
+        }
     }
 
     function onFormSubmit() {
