@@ -9,14 +9,19 @@ let form = document.querySelector('[name=form]');
 let result = document.querySelector('#resultText');
 let resultCount = document.querySelector('#resultCount');
 let count = 0;
+let guesses = [];
 
 console.log("1 uzduotis, skaicius kuri reikia atspeti: " + randomNumber);
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     let guess = e.target.elements.input.value;
+    e.target.elements.input.value = '';
+    guesses.push(guess);
+    localStorage.setItem('guesses', JSON.stringify(guesses));
     if (guess == randomNumber) {
-        result.innerHTML = "Atspėjote";
+        result.innerHTML = `Atspėjote`;
+        console.log(JSON.parse(localStorage.getItem('guesses')));
     } else if (guess > randomNumber) {
         result.innerHTML = "Skaičius per didelis";
     } else {

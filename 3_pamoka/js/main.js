@@ -166,5 +166,4 @@
             result.innerText = "Ne asmens kodas";
         }
     }
-
 })();
