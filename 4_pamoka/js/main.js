@@ -1,122 +1,76 @@
 let operacija = document.querySelector("#operacija");
 let likutis = document.querySelector("#likutis");
-let operaciju_logas;
+operaciju_logas = [];
+likutis.innerText = `Likutis: 0`;
 
-if (localStorage.getItem('operaciju_logas') === null) {
-    operaciju_logas = [];
-    likutis.innerText = `Likutis: 0`;
-
-} else {
+// TIKRINA AR LOGAS YRA LOCAL STORAGE
+if (localStorage.getItem('operaciju_logas') !== null) {
     operaciju_logas = JSON.parse(localStorage.getItem('operaciju_logas'));
     likutis.innerText = `Likutis: ${operaciju_logas.reduce((a, b) => a + b, 0)}`;
     showHistory();
 }
 
+// RIKIUOJA IRASUS
 document.querySelector("#operacijos-tipas").addEventListener("change", e => {
     let operacijos_tipas = e.target.value;
-    if (operacijos_tipas == "rikiuoti-daugiau") {
-        showHistory(operacijos_tipas);
-    } else if (operacijos_tipas == "rikiuoti-maziau") {
-        showHistory(operacijos_tipas);
-    } 
+    (operacijos_tipas == "rikiuoti-daugiau") ? showHistory(operacijos_tipas): false;
+    (operacijos_tipas == "rikiuoti-maziau") ? showHistory(operacijos_tipas): false;
 });
 
+// FILTRUOJA IRASUS, IDEJIMO / ISEMIMO OPERACIJOS
 operacija.addEventListener("submit", e => {
     e.preventDefault();
     let operacijos_tipas = e.target.elements["operacijos-tipas"].value;
     let pinigu_suma = +e.target.elements["suma"].value;
 
-    if (operacijos_tipas == "isimti") {
-        if (operaciju_logas.reduce((a, b) => a + b, 0) >= pinigu_suma) {
-            operaciju_logas.push(pinigu_suma * -1);
-            localStorage.setItem("operaciju_logas", JSON.stringify(operaciju_logas));
-            likutis.innerText = `Likutis: ${operaciju_logas.reduce((a, b) => a + b, 0)}`;
-            showHistory();
-        } else {
-            alert("Per mažas pinigų likutis");
-        }
-    }else if (operacijos_tipas == "filtruoti-daugiau") {
-        showHistory(operacijos_tipas);
-    } else if (operacijos_tipas == "filtruoti-maziau") {
-        showHistory(operacijos_tipas);
-    } else if(operacijos_tipas == "ideti") {
-        operaciju_logas.push(pinigu_suma);
-        localStorage.setItem("operaciju_logas", JSON.stringify(operaciju_logas));
-        likutis.innerText = `Likutis: ${operaciju_logas.reduce((a, b) => a + b, 0)}`;
-        showHistory();
-    }
+    (operacijos_tipas == "isimti") ? takeMoneyOut(pinigu_suma): false;
+    (operacijos_tipas == "filtruoti-daugiau") ? showHistory(operacijos_tipas): false;
+    (operacijos_tipas == "filtruoti-maziau") ? showHistory(operacijos_tipas): false;
+    (operacijos_tipas == "ideti") ? depositMoney(pinigu_suma): false;
     e.target.elements["suma"].value = "";
 });
 
-function showHistory(sort_order = false) {
+// SUKURIA OPERACIJU ISTORIJOS IRASUS
+function createHistoryLog(array) {
     let history = document.querySelector("#history");
     history.innerHTML = "";
-    let operaciju_logas = JSON.parse(localStorage.getItem("operaciju_logas"));
-    if (sort_order === false) {
-        operaciju_logas.forEach(e => {
-            let line = document.createElement("p");
-            if (e > 0) {
-                line.setAttribute("class", "alert-success");
-                line.innerText = "Įdėta: " + e;
-            } else {
-                line.setAttribute("class", "alert-danger");
-                line.innerText = "Išimta: " + (e * -1);
-            }
-            history.appendChild(line);
-        });
-    } else if (sort_order == "filtruoti-daugiau") {
-        operaciju_logas.forEach(e => {
-            if (Math.abs(e) > +document.querySelector("#suma").value) {
-                let line = document.createElement("p");
-                if (e > 0) {
-                    line.setAttribute("class", "alert-success");
-                    line.innerText = "Įdėta: " + e;
-                } else {
-                    line.setAttribute("class", "alert-danger");
-                    line.innerText = "Išimta: " + (e * -1);
-                }
-                history.appendChild(line);
-            }
-        });
-    } else if (sort_order == "filtruoti-maziau") {
-        operaciju_logas.forEach(e => {
-            if (Math.abs(e) < +document.querySelector("#suma").value) {
-                let line = document.createElement("p");
-                if (e > 0) {
-                    line.setAttribute("class", "alert-success");
-                    line.innerText = "Įdėta: " + e;
-                } else {
-                    line.setAttribute("class", "alert-danger");
-                    line.innerText = "Išimta: " + (e * -1);
-                }
-                history.appendChild(line);
-            }
-        });
-    } else if (sort_order == "rikiuoti-daugiau") {
-        let operacijos_filtered = operaciju_logas.sort((suma1, suma2) => Math.abs(suma2) - Math.abs(suma1));
-        operacijos_filtered.forEach(e => {
-                let line = document.createElement("p");
-                if (e > 0) {
-                    line.setAttribute("class", "alert-success");
-                    line.innerText = "Įdėta: " + e;
-                } else {
-                    line.setAttribute("class", "alert-danger");
-                    line.innerText = "Išimta: " + (e * -1);
-                }
-                history.appendChild(line);
-        });
-    } else if (sort_order == "rikiuoti-maziau") {
-        let operacijos_filtered = operaciju_logas.sort((suma1, suma2) => Math.abs(suma1) - Math.abs(suma2));
-        operacijos_filtered.forEach(e => {
-                let line = document.createElement("p");
-                if (e > 0) {
-                    line.setAttribute("class", "alert-success");
-                    line.innerText = "Įdėta: " + e;
-                } else {
-                    line.setAttribute("class", "alert-danger");
-                    line.innerText = "Išimta: " + (e * -1);
-                }
-                history.appendChild(line);
-        });
+    array.forEach(e => {
+        let line = document.createElement("p");
+        if (e > 0) {
+            line.setAttribute("class", "alert-success");
+            line.innerText = "Įdėta: " + e;
+        } else {
+            line.setAttribute("class", "alert-danger");
+            line.innerText = "Išimta: " + (e * -1);
+        }
+        history.appendChild(line);
+    });
+}
+
+function takeMoneyOut(money) {
+    if (operaciju_logas.reduce((a, b) => a + b, 0) >= money) {
+        operaciju_logas.push(money * -1);
+        localStorage.setItem("operaciju_logas", JSON.stringify(operaciju_logas));
+        likutis.innerText = `Likutis: ${operaciju_logas.reduce((a, b) => a + b, 0)}`;
+        showHistory();
+    } else {
+        alert("Per mažas pinigų likutis");
     }
+}
+
+function depositMoney(money) {
+    operaciju_logas.push(money);
+    localStorage.setItem("operaciju_logas", JSON.stringify(operaciju_logas));
+    likutis.innerText = `Likutis: ${operaciju_logas.reduce((a, b) => a + b, 0)}`;
+    showHistory();
+}
+
+function showHistory(sort_order = false) {
+    let operaciju_logas = JSON.parse(localStorage.getItem("operaciju_logas"));
+    let input_sum = +document.querySelector("#suma").value;
+    (sort_order === false) ? createHistoryLog(operaciju_logas): false;
+    (sort_order == "filtruoti-daugiau") ? createHistoryLog(operaciju_logas.filter(operacija => Math.abs(operacija) > input_sum)): false;
+    (sort_order == "filtruoti-maziau") ? createHistoryLog(operaciju_logas.filter(operacija => Math.abs(operacija) < input_sum)): false;
+    (sort_order == "rikiuoti-daugiau") ? createHistoryLog(operaciju_logas.sort((suma1, suma2) => Math.abs(suma2) - Math.abs(suma1))): false;
+    (sort_order == "rikiuoti-maziau") ? createHistoryLog(operaciju_logas.sort((suma1, suma2) => Math.abs(suma1) - Math.abs(suma2))): false;
 }
