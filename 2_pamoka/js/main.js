@@ -18,10 +18,13 @@ form.addEventListener('submit', function (e) {
     let guess = e.target.elements.input.value;
     e.target.elements.input.value = '';
     guesses.push(guess);
+
+    // LOCAL STORAGE TEST TASK
     localStorage.setItem('guesses', JSON.stringify(guesses));
+    console.log(JSON.parse(localStorage.getItem('guesses')));
+    
     if (guess == randomNumber) {
         result.innerHTML = `Atspėjote`;
-        console.log(JSON.parse(localStorage.getItem('guesses')));
     } else if (guess > randomNumber) {
         result.innerHTML = "Skaičius per didelis";
     } else {
