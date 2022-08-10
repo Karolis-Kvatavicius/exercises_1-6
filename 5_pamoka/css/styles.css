@@ -2,6 +2,10 @@ body {
     background-color: #f9f9fa
 }
 
+.btn-width {
+    width: 100px;
+}
+
 .padding {
     padding: 3rem !important
 }
